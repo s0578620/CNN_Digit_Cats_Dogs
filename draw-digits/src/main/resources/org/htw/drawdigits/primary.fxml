@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171"
+  xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="org.htw.drawdigits.PrimaryController">
+
+  <!--  <padding>-->
+  <!--    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>-->
+  <!--  </padding>-->
+
+  <BorderPane>
+    <top>
+      <HBox alignment="CENTER">
+        <HBox prefHeight="50" alignment="CENTER_LEFT">
+          <Button text="Left!" onAction="#onLeftButtonClicked"/>
+          <Label prefWidth="10"/>
+          <Label fx:id="canvasLabel" text="Canvas 1/1"/>
+          <Label prefWidth="10"/>
+          <Button text="Right!" onAction="#onRightButtonClicked"/>
+          <Label prefWidth="10"/>
+          <Button text="Reset" onAction="#onResetCanvas"/>
+          <Label prefWidth="25"/>
+          <Button text="New" onAction="#onNewCanvas"/>
+          <Label prefWidth="10"/>
+          <Button text="Delete" onAction="#onDeleteCanvas"/>
+          <Label prefWidth="10"/>
+        </HBox>
+        <Label prefWidth="125"/>
+        <HBox alignment="CENTER_RIGHT" prefHeight="50">
+          <Label fx:id="modelLabel" textAlignment="RIGHT" prefWidth="150"/>
+          <Label prefWidth="10"/>
+          <ChoiceBox prefWidth="120" fx:id="modelBox" onMousePressed="#checkModelOptions"/>
+        </HBox>
+      </HBox>
+    </top>
+    <left>
+      <VBox>
+        <Canvas fx:id="canvas" width="400" height="400" onMouseDragged="#canvasOnMouseDragged"
+          onMouseReleased="#canvasOnMouseReleased" onMousePressed="#canvasOnMousePressed"/>
+      </VBox>
+    </left>
+    <right>
+      <VBox alignment="CENTER_RIGHT">
+        <Canvas fx:id="resultCanvas" width="400" height="400"/>
+      </VBox>
+    </right>
+    <bottom>
+      <HBox alignment="BOTTOM_LEFT" prefHeight="50">
+        <HBox alignment="CENTER_LEFT" prefHeight="50">
+          <Label prefWidth="15"/>
+          <Button text="Invert" onAction="#onInvertColors"/>
+          <Label prefWidth="10"/>
+          <Button text="Undo" onAction="#onUndoDraw"/>
+          <Label prefWidth="10"/>
+          <Label text="Erase: "/>
+          <Label prefWidth="4"/>
+          <CheckBox fx:id="erase"/>
+          <Label prefWidth="4"/>
+          <Label text="Brush: "/>
+          <Slider fx:id="brushSize" accessibleText="Brush Size" value="18" min="10" max="25"
+            showTickLabels="true"/>
+        </HBox>
+        <Label prefWidth="300"/>
+        <HBox alignment="CENTER_RIGHT" prefHeight="50">
+          <Button text="Features" onAction="#onFeatures"/>
+          <Label prefWidth="15"/>
+          <Button text="Reset All" onAction="#onResetConnection"/>
+        </HBox>
+      </HBox>
+    </bottom>
+  </BorderPane>
+</VBox>

@@ -1,0 +1,6 @@
+turquoise=	adam 0.001	
+red=		adam 0.001
+yellow=		adam 0.00001
+
+
+Relu / Softmax
